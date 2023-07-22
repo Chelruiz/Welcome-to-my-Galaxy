@@ -1,0 +1,33 @@
+.Me {
+  border-radius: 20%;
+  padding: 60px;
+  width: 350px;
+  height: 350px;
+}
+/*type animation on top on image*/
+.typed-out{
+  color: #435B66;
+  font-family: monospace;
+  position: absolute;
+  overflow: hidden;
+  border-right: .15em solid red;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em; 
+  animation: 
+    typing 5.0s steps(30, end),
+    blink-caret .7s step-end infinite;
+}
+
+@keyframes typing{
+  from {
+    width: 0;
+  }
+  to {
+    width: 33%;
+  }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white}
+}
