@@ -107,20 +107,24 @@ body {
 }
 
 /* Add a class for the purple box and style it */
-.highlight-box {
-  background-color: purple;
-  padding: 10px;
-  border-radius: 10px;
-  display: none; /* Initially hide the box */
-  position: relative; /* Position the box relative to the paragraph container */
-  top: 0;
-  left: 0;
-  width: 100%; /* Cover the entire width of the container */
-  height: 100%; /* Cover the entire height of the container */
+.paragraph-container .highlight-box {
+    background-color: purple;
+    padding: 10px;
+    border-radius: 10px;
+    display: none; /* Initially hide the box */
+    position: absolute; /* Position the box over the paragraph */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
-
 
 /* Show the purple box when hovering over the paragraph container */
 .paragraph-container:hover .highlight-box {
     display: block;
+}
+
+/* Style the paragraph text to be white */
+.paragraph-container:hover h3 {
+    color: white;
 }
