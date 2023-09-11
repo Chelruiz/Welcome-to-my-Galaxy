@@ -1,33 +1,126 @@
-.Me {
-  border-radius: 20%;
-  padding: 60px;
-  width: 350px;
-  height: 350px;
-}
-/*type animation on top on image*/
-.typed-out{
-  color: #435B66;
-  font-family: monospace;
-  position: absolute;
-  overflow: hidden;
-  border-right: .15em solid red;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: .15em; 
-  animation: 
-    typing 5.0s steps(30, end),
-    blink-caret .7s step-end infinite;
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
-@keyframes typing{
-  from {
-    width: 0;
-  }
-  to {
-    width: 33%;
-  }
+body {
+    background-image: url('https://img.freepik.com/free-vector/gradient-pastel-sky-background_23-2148909258.jpg?w=900&t=st=1688679628~exp=1688680228~hmac=dd9e7bacd944966d4df34d17e540dddfcf7409aa2e8e06f651c95263449eb1d6');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 50px; /* Add margin at the bottom to make space for the comment section */
+}
+
+.Me {
+    border-radius: 20%;
+    padding: 60px;
+    width: 350px;
+    height: 350px;
+}
+
+.typed-out {
+    color: #435B66;
+    font-family: monospace;
+    position: absolute;
+    overflow: hidden;
+    border-right: .15em solid red;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 5.0s steps(30, end),
+        blink-caret .7s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 33%;
+    }
+}
+
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: white}
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
+}
+
+.contact {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact button {
+    background-color: #793FDF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Adjust the moving star */
+#moving-image {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    transition: left 1s linear; /* CSS transition for smooth animation */
+}
+
+/* Comment section styles */
+.comment-section {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.comment-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Style the paragraphs */
+.paragraph-container {
+    position: relative; /* Necessary for positioning the purple box */
+    margin-bottom: 20px;
+}
+
+/* Add a class for the purple box and style it */
+.highlight-box {
+  background-color: purple;
+  padding: 10px;
+  border-radius: 10px;
+  display: none; /* Initially hide the box */
+  position: relative; /* Position the box relative to the paragraph container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire width of the container */
+  height: 100%; /* Cover the entire height of the container */
+}
+
+
+/* Show the purple box when hovering over the paragraph container */
+.paragraph-container:hover .highlight-box {
+    display: block;
 }
