@@ -1,11 +1,11 @@
-alert("Enjoy my galaxy!!")
+// Alert message
+alert("Enjoy my galaxy!!");
 
 // Moving star
 const movingImage = document.getElementById("moving-image");
+const animationDuration = 3000; // Animation duration in milliseconds
 
 function moveImage(timestamp) {
-    const animationDuration = 3000; // Animation duration in milliseconds
-
     const progress = (timestamp - startTime) / animationDuration;
 
     const maxXPosition = window.innerWidth - movingImage.width;
@@ -31,9 +31,12 @@ function startAnimation() {
 startAnimation();
 
 // Comment section
+const commentsDiv = document.getElementById('comments');
+const commentTextElement = document.getElementById('comment-text');
+const submitCommentButton = document.getElementById('submit-comment');
+
 // Function to display comments from localStorage
 function displayComments() {
-    const commentsDiv = document.getElementById('comments');
     commentsDiv.innerHTML = '';
 
     for (let i = 0; i < localStorage.length; i++) {
@@ -60,14 +63,14 @@ function displayComments() {
 
 // Function to add a new comment to localStorage
 function addComment() {
-    const commentText = document.getElementById('comment-text').value;
+    const commentText = commentTextElement.value;
 
     if (commentText) {
         const timestamp = Date.now();
         localStorage.setItem(timestamp, commentText);
 
         // Clear the input field
-        document.getElementById('comment-text').value = '';
+        commentTextElement.value = '';
 
         // Display the updated comments
         displayComments();
@@ -81,10 +84,11 @@ function deleteComment(key) {
 }
 
 // Event listener for submitting a comment
-document.getElementById('submit-comment').addEventListener('click', addComment);
+submitCommentButton.addEventListener('click', addComment);
 
 // Initial display of comments
 displayComments();
+
 // Function to add event listeners for paragraph highlighting
 function addParagraphHighlightListeners() {
     const paragraphContainers = document.querySelectorAll('.paragraph-container');
@@ -101,6 +105,9 @@ function addParagraphHighlightListeners() {
         });
     });
 }
+
+// Call the function to add event listeners for paragraph highlighting
+addParagraphHighlightListeners();
 
 // Call the function to add event listeners for paragraph highlighting
 addParagraphHighlightListeners();
