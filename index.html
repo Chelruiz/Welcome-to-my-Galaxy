@@ -5,51 +5,155 @@
   <title>Chelsea Ruiz's Landing Page</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
-    body {
+    body{
       background-image: url('https://img.freepik.com/free-vector/gradient-pastel-sky-background_23-2148909258.jpg?w=900&t=st=1688679628~exp=1688680228~hmac=dd9e7bacd944966d4df34d17e540dddfcf7409aa2e8e06f651c95263449eb1d6');
       background-repeat: no-repeat;
-      background-attachment:fixed;
+      background-attachment: fixed;
       background-size: cover;
+   
+    
+    .container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .Me {
+      margin-right: 20px;
+    }
+    
+    /* Style the paragraphs */
+    .paragraph-container {
+      position: relative; /* Necessary for positioning the purple box */
+      margin-bottom: 20px;
+    }
+
+    /* Add a class for the purple box and style it */
+     .highlight-box {
+      background-color: purple;
+      padding: 10px;
+      border-radius: 10px;
+      display: none; /* Initially hide the box */
+      position: absolute; /* Position the box over the paragraph */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Show the purple box when hovering over the paragraph container */
+    .paragraph-container:hover .highlight-box {
+      display: block;
     }
   </style>
 </head>
- <!--tpye header code with image--> 
+
 <body>
-  <div class="typed-out">
+<div class="typed-out">
     <h1>I'm Chelsea! Welcome to my page!!!!</h1>
-  </div>
-  <img class="Me" src="https://i.postimg.cc/sgLM2LL6/gamer-me.png">
-  <div class="container">
-    
-<!-- Cube code -->
-   
-<!-- Tooltip --> 
- <div class="Pink monster">
-   <div class="item">
-     <div class="data-tooltip">
-     <div class="icon"><i class="ri-twitter-line"</div>
-        <h3>Hi! I'm Chelsea. This page is a little about me and my journey into this coding world. I have always had a curious mind in coding but was too afraid to even attempt to try until now. I'm currently enrolled in Correlation One where we are learning how to code in HTML, CSS, and JavaScript. I made this page to showcase my work and connect all my projects to this page.</h3>
-      
- <div class="Green monster">
-   <h3>I'm really enjoying this process of learning how to code, and problem-solving is my favorite part. Now that we are getting into CSS, it has made my page more fun to be on and to connect with me through email or follow my projects and watch my skills grow on CodePen.</h3>
+</div>
+
+<div class="container">
+    <img class="Me" src="https://i.postimg.cc/sgLM2LL6/gamer-me.png">
+    <div>
+      <div class="paragraph-container">
+        <div class="highlight-box"></div>
+        <h3>Hi! I'm Chelsea and this page is a little about me and my journey into this coding world. I have always had a curious mind in coding but was too afraid to even attempt to try until now. I'm currently enrolled in Correlation One where we are learning how to code in HTML, CSS, and JavaScript. I made this page to showcase my work and connect all my projects to this page.</h3>
       </div>
+      <div class="paragraph-container">
+        <div class="highlight-box"></div>
+        <h3>I'm really enjoying this process of learning how to code, and problem-solving is my favorite part. Now that we are getting into more coding, it has made my page more fun to be on and to connect with other developers. Follow me as my projects and skills grow on CodePen. If you have any questions about anything, then contact me through my email or LinkedIn.</h3>
+      </div>
+    </div>
+
+<!-- moving star -->
+<img id="moving-image" src="https://i.postimg.cc/dh6y7jWB/image.png" alt="Moving Image">
+<script src="script.js"></script>
+
+<!-- contact-->
+<div class="contact">
+    <a href="https://www.linkedin.com/in/chelsea-ruiz-1962b5252/">
+        <img src="https://www.citypng.com/public/uploads/preview/hd-white-outline-linkedin-round-icon-png-31624153887ernclzsksg.png" alt="profile" style="width:42px;height:42px;">
+    </a>
+    <a href="https://codepen.io/Chelruiz">
+        <img src="https://www.nicepng.com/png/detail/128-1285659_codenpen-icon-logo-png-transparent-codepen-logo-png.png" style="width:42px;height:42px;">
+    </a>
+    <h2><p style="color:#793FDF;">chelruiz1@gmail.com</p></h2>
+    <a href="mailto:chelruiz1@gmail.com? subject=subject text">
+        <button>Contact</button>
+    </a>
+</div>
+
+<!-- comment section-->
+<div class="comment-section">
+    <h1>Comment Section</h1>
+    <div id="comment-form">
+        <textarea id="comment-text" rows="4" placeholder="Add a comment..."></textarea>
+        <button id="submit-comment">Submit</button>
+    </div>
+    <div id="comments">
+        <!-- Comments will be displayed here -->
+    </div>
+</div>
+
+<script>
+    // Function to display comments from localStorage
+    function displayComments() {
+        const commentsDiv = document.getElementById('comments');
+        commentsDiv.innerHTML = '';
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const comment = localStorage.getItem(key);
+
+            const commentBox = document.createElement('div');
+            commentBox.classList.add('comment-box');
+
+            const commentElement = document.createElement('div');
+            commentElement.textContent = comment;
+
+            // Add a delete button to each comment
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', () => deleteComment(key));
+
+            commentBox.appendChild(commentElement);
+            commentBox.appendChild(deleteButton);
+
+            commentsDiv.appendChild(commentBox);
+        }
+    }
+
+    // Function to add a new comment to localStorage
+    function addComment() {
+        const commentText = document.getElementById('comment-text').value;
+
+        if (commentText) {
+            const timestamp = Date.now();
+            localStorage.setItem(timestamp, commentText);
+
+            // Clear the input field
+            document.getElementById('comment-text').value = '';
+
+            // Display the updated comments
+            displayComments();
+        }
+    }
+
+    // Function to delete a comment from localStorage
+    function deleteComment(key) {
+        localStorage.removeItem(key);
+        displayComments();
+    }
+
+    // Event listener for submitting a comment
+    document.getElementById('submit-comment').addEventListener('click', addComment);
+
+    // Initial display of comments
+    displayComments();
+</script>
+
+<script>
+    alert("Enjoy my galaxy!!");
+</script>
 </body>
 </html>
-
-<!-- Contact code -->
-  <div class="contact">
-   <a href="https://www.linkedin.com/in/chelsea-ruiz-1962b5252/">
-    <img src="https://www.citypng.com/public/uploads/preview/hd-white-outline-linkedin-round-icon-png-31624153887ernclzsksg.png" alt="profile" style="width:42px;height:42px;">
-   </a> 
-    
-    <a href="https://codepen.io/Chelruiz">
-    <img src="https://www.nicepng.com/png/detail/128-1285659_codenpen-icon-logo-png-transparent-codepen-logo-png.png" style="width:42px;height:42px;">
-   </a>
-  
-   
-   <h2><p style="color:white;">chelruiz1@gmail.com</p></h2>
-	  <a href="mailto:chelruiz1@gmail.com? subject=subject text">
-    <button>Contact</button></a>
- </body>
-
-<link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/WCwcq3DvY0pbaTqUfU1ToySB2s5mmqAUxcLcTN3Y2J5l-sDwS2L2z6_qmCYNX9wdXg">
