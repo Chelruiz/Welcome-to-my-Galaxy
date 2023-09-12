@@ -5,12 +5,12 @@
   <title>Chelsea Ruiz's Landing Page</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
-    body{
+    body {
       background-image: url('https://img.freepik.com/free-vector/gradient-pastel-sky-background_23-2148909258.jpg?w=900&t=st=1688679628~exp=1688680228~hmac=dd9e7bacd944966d4df34d17e540dddfcf7409aa2e8e06f651c95263449eb1d6');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-   
+    }
     
     .container {
       display: flex;
@@ -42,15 +42,37 @@
     .paragraph-container:hover .highlight-box {
       display: block;
     }
-     
+
+    /* Navigation bar styles */
+    .navbar {
+      background-color: #793FDF; /* Purple background */
+      text-align: center;
+      position: relative; /* Add position: relative; for centering */
+      border: 2px solid purple; /* Purple border */
+      padding: 10px 0; /* Add padding to the top and bottom */
+    }
+
+    .navbar a {
+      display: inline-block;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #5B2DAE; /* Darker purple on hover */
+    }
   </style>
 </head>
 
 <body>
-  <div class="navbar">
+<div class="navbar">
   <a href="#">Home</a>
   <a href="list.html">List Sorter</a>
 </div>
+
 <div class="typed-out">
     <h1>I'm Chelsea! Welcome to my page!!!!</h1>
 </div>
@@ -97,6 +119,15 @@
         <!-- Comments will be displayed here -->
     </div>
 </div>
+
+<script>
+    // Function to display comments from localStorage
+    function displayComments() {
+        const commentsDiv = document.getElementById('comments');
+        commentsDiv.innerHTML = '';
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const
 
 <script>
     // Function to display comments from localStorage
