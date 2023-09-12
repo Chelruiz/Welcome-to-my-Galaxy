@@ -131,7 +131,7 @@ body {
 
 /* Navigation bar styles */
 .navbar {
-  background-color: #333;
+  background-color: #793FDF; /* Purple background */
   overflow: hidden;
   text-align: center; /* Center the text horizontally */
   position: relative; /* Add position:relative for centering */
@@ -148,6 +148,5 @@ body {
 }
 
 .navbar a:hover {
-  background-color: #27005D;
-  color: black;
+  background-color: #5B2DAE; /* Darker purple on hover */
 }
