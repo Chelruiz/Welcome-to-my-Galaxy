@@ -128,3 +128,26 @@ body {
 .paragraph-container:hover h3 {
     color: white;
 }
+
+/* Navigation bar styles */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  text-align: center; /* Center the text horizontally */
+  position: relative; /* Add position:relative for centering */
+  border-bottom: 4px solid black; /* Add a black border at the bottom */
+}
+
+.navbar a {
+  display: inline-block; /* Display links in a row */
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #27005D;
+  color: black;
+}
